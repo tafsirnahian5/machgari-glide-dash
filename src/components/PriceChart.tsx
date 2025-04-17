@@ -1,16 +1,17 @@
 
 import React, { useEffect, useState } from 'react';
 import {
-  Area,
-  AreaChart,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
   CartesianGrid,
   ResponsiveContainer,
   Tooltip,
-  XAxis,
-  YAxis,
 } from 'recharts';
-import { priceChartData } from '@/utils/mockData';
+import { simplifiedChartData } from '@/utils/mockData';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from "@/components/ui/button";
 
 const PriceChart = () => {
   const [mounted, setMounted] = useState(false);
@@ -21,53 +22,44 @@ const PriceChart = () => {
 
   return (
     <Card className="h-full">
-      <CardHeader>
-        <CardTitle className="text-xl">Annual Price Trends</CardTitle>
+      <CardHeader className="flex flex-row items-center justify-between pb-2">
+        <CardTitle className="text-xl">Fish Price Comparison</CardTitle>
+        <Button variant="outline" size="sm">View Trends</Button>
       </CardHeader>
-      <CardContent className="chart-animation">
+      <CardContent className="chart-animation pt-4">
         {mounted && (
           <ResponsiveContainer width="100%" height={300}>
-            <AreaChart
-              data={priceChartData}
+            <BarChart
+              data={simplifiedChartData}
               margin={{
-                top: 10,
+                top: 5,
                 right: 30,
-                left: 0,
-                bottom: 0,
+                left: 20,
+                bottom: 25,
               }}
             >
-              <defs>
-                <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-                  <stop
-                    offset="5%"
-                    stopColor="hsl(var(--primary))"
-                    stopOpacity={0.8}
-                  />
-                  <stop
-                    offset="95%"
-                    stopColor="hsl(var(--primary))"
-                    stopOpacity={0}
-                  />
-                </linearGradient>
-              </defs>
-              <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
-              <XAxis dataKey="date" />
-              <YAxis />
-              <Tooltip
+              <CartesianGrid strokeDasharray="3 3" vertical={false} opacity={0.2} />
+              <XAxis dataKey="category" tick={{ fontSize: 12 }} />
+              <YAxis
+                tickFormatter={(value) => `$${value}`}
+                tick={{ fontSize: 12 }}
+                domain={[0, 'dataMax + 2']}
+              />
+              <Tooltip 
+                formatter={(value) => [`$${value}`, 'Price per lb']}
                 contentStyle={{
                   backgroundColor: "hsl(var(--card))",
                   borderColor: "hsl(var(--border))",
                   borderRadius: "var(--radius)",
+                  fontSize: "12px",
                 }}
               />
-              <Area
-                type="monotone"
-                dataKey="value"
-                stroke="hsl(var(--primary))"
-                fillOpacity={1}
-                fill="url(#colorValue)"
+              <Bar 
+                dataKey="value" 
+                fill="hsl(var(--primary))" 
+                radius={[4, 4, 0, 0]}
               />
-            </AreaChart>
+            </BarChart>
           </ResponsiveContainer>
         )}
       </CardContent>

@@ -9,7 +9,7 @@ export interface FishStockData {
 }
 
 export interface ChartDataPoint {
-  date: string;
+  category: string;
   value: number;
 }
 
@@ -56,19 +56,28 @@ export const fishStockData: FishStockData[] = [
   }
 ];
 
+// Simplified chart data for easier understanding
+export const simplifiedChartData: ChartDataPoint[] = [
+  { category: "Salmon", value: 8.75 },
+  { category: "Tilapia", value: 4.20 },
+  { category: "Sea Bass", value: 12.80 },
+  { category: "Trout", value: 6.50 },
+  { category: "Tuna", value: 22.45 }
+];
+
 export const priceChartData: ChartDataPoint[] = [
-  { date: "Jan", value: 4000 },
-  { date: "Feb", value: 3000 },
-  { date: "Mar", value: 5000 },
-  { date: "Apr", value: 4780 },
-  { date: "May", value: 5890 },
-  { date: "Jun", value: 6390 },
-  { date: "Jul", value: 6490 },
-  { date: "Aug", value: 7490 },
-  { date: "Sep", value: 7000 },
-  { date: "Oct", value: 7300 },
-  { date: "Nov", value: 6890 },
-  { date: "Dec", value: 8490 }
+  { category: "Jan", value: 4000 },
+  { category: "Feb", value: 3000 },
+  { category: "Mar", value: 5000 },
+  { category: "Apr", value: 4780 },
+  { category: "May", value: 5890 },
+  { category: "Jun", value: 6390 },
+  { category: "Jul", value: 6490 },
+  { category: "Aug", value: 7490 },
+  { category: "Sep", value: 7000 },
+  { category: "Oct", value: 7300 },
+  { category: "Nov", value: 6890 },
+  { category: "Dec", value: 8490 }
 ];
 
 export const slideData = [
