@@ -74,7 +74,7 @@ export const priceChartData: ChartDataPoint[] = [
 export const slideData = [
   {
     id: 1,
-    imageUrl: "https://source.unsplash.com/1600x900/?fishing,boat",
+    imageUrl: "https://images.unsplash.com/photo-1510350160889-4a0d3a8c2dfa?fit=crop&w=1600&h=900&q=80",
     title: "Premium Fishing Fleet",
     description: "Discover our state-of-the-art fishing vessels equipped with the latest technology",
     ctaText: "Explore Fleet",
@@ -82,7 +82,7 @@ export const slideData = [
   },
   {
     id: 2,
-    imageUrl: "https://source.unsplash.com/1600x900/?fish,market",
+    imageUrl: "https://images.unsplash.com/photo-1534275288139-1a8ca10fd9f0?fit=crop&w=1600&h=900&q=80",
     title: "Fresh Seafood Market",
     description: "Direct from our boats to your table - the freshest seafood on the market",
     ctaText: "Visit Market",
@@ -90,7 +90,7 @@ export const slideData = [
   },
   {
     id: 3,
-    imageUrl: "https://source.unsplash.com/1600x900/?aquaculture,farm",
+    imageUrl: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?fit=crop&w=1600&h=900&q=80",
     title: "Sustainable Aquaculture",
     description: "Leading the industry in sustainable fishing and farming practices",
     ctaText: "Learn More",
