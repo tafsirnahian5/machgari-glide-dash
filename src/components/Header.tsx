@@ -1,5 +1,6 @@
 
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/contexts/ThemeContext";
 import { Menu, X, Globe, Moon, Sun, LogIn, UserPlus } from "lucide-react";
@@ -17,14 +18,14 @@ const Header = () => {
     <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md shadow-sm border-b">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center space-x-2">
+        <Link to="/" className="flex items-center space-x-2">
           <div className="bg-machgari-700 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">
             M
           </div>
           <span className="text-xl font-bold text-machgari-700 dark:text-machgari-400">
             MachGari
           </span>
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8">
@@ -34,11 +35,17 @@ const Header = () => {
           >
             About Us
           </a>
-          <a
-            href="#services"
+          <Link
+            to="/services"
             className="text-foreground hover:text-machgari-600 transition-all-colors slide-hover"
           >
             Services
+          </Link>
+          <a
+            href="#market-dashboard"
+            className="text-foreground hover:text-machgari-600 transition-all-colors slide-hover"
+          >
+            Market Data
           </a>
         </nav>
 
@@ -72,12 +79,14 @@ const Header = () => {
           <Button
             variant="ghost"
             className="text-foreground hover:text-machgari-600"
+            as={Link}
+            to="/login"
           >
             <LogIn className="h-5 w-5 mr-2" />
             Login
           </Button>
 
-          <Button className="bg-machgari-600 hover:bg-machgari-700 text-white">
+          <Button className="bg-machgari-600 hover:bg-machgari-700 text-white" as={Link} to="/signup">
             <UserPlus className="h-5 w-5 mr-2" />
             Signup
           </Button>
@@ -111,12 +120,19 @@ const Header = () => {
             >
               About Us
             </a>
-            <a
-              href="#services"
+            <Link
+              to="/services"
               className="text-foreground hover:text-machgari-600 transition-all-colors py-2 px-4 rounded-md hover:bg-muted"
               onClick={() => setMobileMenuOpen(false)}
             >
               Services
+            </Link>
+            <a
+              href="#market-dashboard"
+              className="text-foreground hover:text-machgari-600 transition-all-colors py-2 px-4 rounded-md hover:bg-muted"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Market Data
             </a>
             <div className="flex items-center justify-between pt-4 border-t">
               <Button
@@ -147,12 +163,27 @@ const Header = () => {
               </Button>
             </div>
             <div className="flex flex-col space-y-3 pt-3">
-              <Button variant="outline" className="w-full">
+              <Button 
+                variant="outline" 
+                className="w-full"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                }}
+                as={Link}
+                to="/login"
+              >
                 <LogIn className="h-4 w-4 mr-2" />
                 Login
               </Button>
 
-              <Button className="w-full bg-machgari-600 hover:bg-machgari-700 text-white">
+              <Button 
+                className="w-full bg-machgari-600 hover:bg-machgari-700 text-white"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                }}
+                as={Link}
+                to="/signup"
+              >
                 <UserPlus className="h-4 w-4 mr-2" />
                 Signup
               </Button>
