@@ -15,6 +15,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { cn } from '@/lib/utils';
 
 type UserRole = 'fisherman' | 'arotdar' | 'dof' | null;
+type SignupStep = 'role-selection' | 'basic-info' | 'role-specific';
 
 interface RoleInfo {
   title: string;
@@ -58,8 +59,6 @@ const arotdarSchema = baseSchema.extend({
 const dofSchema = baseSchema.extend({
   employeeId: z.string().min(5, { message: "Employee ID must be at least 5 characters" }),
 });
-
-type SignupStep = 'role-selection' | 'basic-info' | 'role-specific';
 
 const Signup = () => {
   const [selectedRole, setSelectedRole] = useState<UserRole>(null);
@@ -241,7 +240,7 @@ const Signup = () => {
                   <div className={`h-full bg-machgari-600 ${currentStep !== 'role-selection' ? 'w-full' : 'w-0'}`}></div>
                 </div>
                 <div className="flex flex-col items-center">
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center ${currentStep !== 'role-selection' ? 'bg-machgari-600 text-white' : 'bg-muted'}`}>
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center ${currentStep === 'basic-info' || currentStep === 'role-specific' ? 'bg-machgari-600 text-white' : 'bg-muted'}`}>
                     <span>2</span>
                   </div>
                   <span className="text-xs mt-1">Info</span>

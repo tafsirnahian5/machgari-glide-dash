@@ -76,20 +76,22 @@ const Header = () => {
             )}
           </Button>
 
-          <Button
-            variant="ghost"
-            className="text-foreground hover:text-machgari-600"
-            as={Link}
-            to="/login"
-          >
-            <LogIn className="h-5 w-5 mr-2" />
-            Login
-          </Button>
+          <Link to="/login">
+            <Button
+              variant="ghost"
+              className="text-foreground hover:text-machgari-600"
+            >
+              <LogIn className="h-5 w-5 mr-2" />
+              Login
+            </Button>
+          </Link>
 
-          <Button className="bg-machgari-600 hover:bg-machgari-700 text-white" as={Link} to="/signup">
-            <UserPlus className="h-5 w-5 mr-2" />
-            Signup
-          </Button>
+          <Link to="/signup">
+            <Button className="bg-machgari-600 hover:bg-machgari-700 text-white">
+              <UserPlus className="h-5 w-5 mr-2" />
+              Signup
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -163,30 +165,19 @@ const Header = () => {
               </Button>
             </div>
             <div className="flex flex-col space-y-3 pt-3">
-              <Button 
-                variant="outline" 
-                className="w-full"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                }}
-                as={Link}
-                to="/login"
-              >
-                <LogIn className="h-4 w-4 mr-2" />
-                Login
-              </Button>
+              <Link to="/login" onClick={() => setMobileMenuOpen(false)}>
+                <Button variant="outline" className="w-full">
+                  <LogIn className="h-4 w-4 mr-2" />
+                  Login
+                </Button>
+              </Link>
 
-              <Button 
-                className="w-full bg-machgari-600 hover:bg-machgari-700 text-white"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                }}
-                as={Link}
-                to="/signup"
-              >
-                <UserPlus className="h-4 w-4 mr-2" />
-                Signup
-              </Button>
+              <Link to="/signup" onClick={() => setMobileMenuOpen(false)}>
+                <Button className="w-full bg-machgari-600 hover:bg-machgari-700 text-white">
+                  <UserPlus className="h-4 w-4 mr-2" />
+                  Signup
+                </Button>
+              </Link>
             </div>
           </nav>
         </div>
