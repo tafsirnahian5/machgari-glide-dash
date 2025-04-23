@@ -1,30 +1,14 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { 
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle 
-} from '@/components/ui/card';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { toast } from "sonner";
 
 const AboutContact = () => {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast.success("Message sent successfully! We'll be in touch soon.");
-  };
-
   return (
     <section id="about" className="container mx-auto py-16 px-4">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -77,61 +61,26 @@ const AboutContact = () => {
           </div>
         </div>
 
-        {/* Contact Form */}
-        <div>
-          <Card className="shadow-lg">
-            <CardHeader>
-              <CardTitle className="text-2xl">Get in Touch</CardTitle>
-              <CardDescription>
-                Have questions or interested in our services? Send us a message and we'll get back to you shortly.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-medium">Full Name</label>
-                    <Input id="name" placeholder="John Doe" required />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium">Email</label>
-                    <Input id="email" type="email" placeholder="john@example.com" required />
-                  </div>
-                </div>
-                
-                <div className="space-y-2">
-                  <label htmlFor="subject" className="text-sm font-medium">Subject</label>
-                  <Input id="subject" placeholder="How can we help you?" required />
-                </div>
-                
-                <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium">Message</label>
-                  <Textarea 
-                    id="message" 
-                    placeholder="Tell us more about your inquiry..." 
-                    rows={5}
-                    required
-                  />
-                </div>
-              
-                <div className="pt-2">
-                  <Button type="submit" className="w-full bg-machgari-600 hover:bg-machgari-700">
-                    Send Message
-                  </Button>
-                </div>
-              </form>
-            </CardContent>
-            <CardFooter className="bg-muted/50 flex justify-between border-t">
-              <div className="text-sm text-muted-foreground">
-                <p>Or reach us directly:</p>
-                <p className="font-medium">contact@machgari.com</p>
-              </div>
-              <div className="text-sm text-muted-foreground text-right">
-                <p>Phone:</p>
-                <p className="font-medium">+1 (555) 123-4567</p>
-              </div>
-            </CardFooter>
-          </Card>
+        {/* Contact Information */}
+        <div className="bg-muted/50 p-6 rounded-lg border">
+          <h3 className="text-xl font-bold mb-4">Contact Information</h3>
+          <div className="space-y-4">
+            <div>
+              <p className="font-medium">Email:</p>
+              <p className="text-muted-foreground">contact@machgari.com</p>
+            </div>
+            <div>
+              <p className="font-medium">Phone:</p>
+              <p className="text-muted-foreground">+1 (555) 123-4567</p>
+            </div>
+            <div>
+              <p className="font-medium">Address:</p>
+              <p className="text-muted-foreground">
+                123 Fisherman's Wharf, 
+                Coastal City, Marine State 54321
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -139,3 +88,4 @@ const AboutContact = () => {
 };
 
 export default AboutContact;
+
